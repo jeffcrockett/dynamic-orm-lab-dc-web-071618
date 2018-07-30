@@ -14,10 +14,15 @@ class Student < InteractiveRecord
     attr_accessor col.to_sym
   end
 
-  def self.find_by(attr: value)
+  def self.find_by(hash)
+    array = [] 
+    hash.each do |key, value|
+      array << key 
+      array << value 
+    end
     sql = "SELECT * FROM ? WHERE ? = ?"
     binding.pry
-    DB[:conn].execute(sql, self.table_name, attr, value)
+    DB[:conn].execute(sql, self.table_name, array[0], array[1])
 
   end
   # binding.pry
