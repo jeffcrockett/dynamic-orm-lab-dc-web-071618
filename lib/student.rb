@@ -20,9 +20,9 @@ class Student < InteractiveRecord
       array << key
       array << value
     end
-    sql = "SELECT * FROM ? WHERE ? = ?"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{array[0]} = #{array[1]}"
     # binding.pry
-    DB[:conn].execute(sql, self.table_name, array[0], array[1])
+    DB[:conn].execute(sql)
 
   end
   # binding.pry
