@@ -15,8 +15,8 @@ class Student < InteractiveRecord
   end
 
   def self.find_by(attr: value)
-    sql = "SELECT * FROM #{self.table_name} WHERE #{attr} = #{value.to_s}"
-    DB[:conn].execute(sql)
+    sql = "SELECT * FROM ? WHERE ? = ?"
+    DB[:conn].execute(sql, self.table_name, attr, value)
 
   end
   # binding.pry
