@@ -21,9 +21,10 @@ class Student < InteractiveRecord
     #   array << value
     # end
     hash.each do |key, value|
-      DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{key} = #{value}")
+      results = DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{key} = #{value}")
     # binding.pry
   end
+  results[0]
     # DB[:conn].execute(sql)
 
   end
