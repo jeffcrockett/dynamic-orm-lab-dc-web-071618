@@ -15,14 +15,15 @@ class Student < InteractiveRecord
   end
 
   def self.find_by(hash)
-    array = []
+    # array = []
+    # hash.each do |key, value|
+    #   array << key
+    #   array << value
+    # end
     hash.each do |key, value|
-      array << key
-      array << value
-    end
-    sql = "SELECT * FROM #{self.table_name} WHERE #{array[0]} = #{array[1]}"
+      DB[:conn].execute("SELECT * FROM ? WHERE ? = ?", self.table_name, key, value)
     binding.pry
-    DB[:conn].execute(sql)
+    # DB[:conn].execute(sql)
 
   end
   # binding.pry
