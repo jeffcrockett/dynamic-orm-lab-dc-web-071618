@@ -23,8 +23,8 @@ class Student < InteractiveRecord
     #   array << key
     #   array << value
     # end
-    DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{hash.keys[0]} = #{hash.values[0]}")
-    # binding.pry
+    susan = DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{hash.keys[0]} = #{hash.values[0]}")
+    binding.pry
 
     # DB[:conn].execute(sql)
 
