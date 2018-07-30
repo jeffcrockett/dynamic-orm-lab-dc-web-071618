@@ -21,7 +21,7 @@ class Student < InteractiveRecord
       array << value
     end
     sql = "SELECT * FROM ? WHERE ? = ?"
-    binding.pry
+    # binding.pry
     DB[:conn].execute(sql, self.table_name, array[0], array[1])
 
   end
