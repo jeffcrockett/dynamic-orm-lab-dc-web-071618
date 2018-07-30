@@ -22,7 +22,7 @@ class Student < InteractiveRecord
     # end
     hash.each do |key, value|
       DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{key} = #{value}")
-    binding.pry
+    # binding.pry
   end
     # DB[:conn].execute(sql)
 
