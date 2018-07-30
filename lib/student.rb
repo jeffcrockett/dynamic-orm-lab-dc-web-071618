@@ -15,10 +15,10 @@ class Student < InteractiveRecord
   end
 
   def self.find_by(hash)
-    array = [] 
+    array = []
     hash.each do |key, value|
-      array << key 
-      array << value 
+      array << key
+      array << value
     end
     sql = "SELECT * FROM ? WHERE ? = ?"
     binding.pry
