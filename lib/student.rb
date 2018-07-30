@@ -21,7 +21,7 @@ class Student < InteractiveRecord
       array << value
     end
     sql = "SELECT * FROM #{self.table_name} WHERE #{array[0]} = #{array[1]}"
-    # binding.pry
+    binding.pry
     DB[:conn].execute(sql)
 
   end
