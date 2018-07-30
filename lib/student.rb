@@ -19,7 +19,7 @@ class Student < InteractiveRecord
     DB[:conn].execute(sql)
 
   end
-  binding.pry
+  # binding.pry
   # def self.find_by(name)
   #   self.find_by_name(name)
   # end
