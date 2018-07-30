@@ -5,9 +5,12 @@ require 'pry'
 class Student < InteractiveRecord
 
   def initialize(props={})
-    @id = props[:id]
-    @name = props[:name]
-    @grade = props[:grade]
+    props.each do |key, value|
+      self.send("#{key}=", value)
+    end
+    # @id = props[:id]
+    # @name = props[:name]
+    # @grade = props[:grade]
   end
 
   self.column_names.each do |col|
